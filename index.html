@@ -1,283 +1,523 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Odyssey | Bibesh's Student Portfolio</title>
-    <link rel="stylesheet" href="style.css"> 
-    
+    <title>Bibesh - Digital Explorer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            500: '#3B82F6', // Blue
-                            600: '#2563EB', // Darker Blue
-                        },
-                        secondary: {
-                            500: '#10B981', // Green
-                        }
-                    }
-                }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0a 50%);
+            position: relative;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .code-window {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .window-controls {
+            background: #2d2d2d;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .typing-effect {
+            border-right: 3px solid #667eea;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #667eea; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 50%;
+            animation: float-up 15s infinite linear;
+        }
+        
+        @keyframes float-up {
+            from {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
             }
         }
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    
-    <script src="components/navbar.js" defer></script>
-    <script src="components/footer.js" defer></script>
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col transition-colors duration-500">
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-lg z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Bibesh</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-white">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white">About</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                </div>
+                <button class="md:hidden text-white" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-black/95 backdrop-blur-lg z-40 transform translate-x-full transition-transform duration-300">
+        <div class="p-6 pt-20">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-300 hover:text-white" onclick="toggleMenu()">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-white" onclick="toggleMenu()">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-white" onclick="toggleMenu()">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white" onclick="toggleMenu()">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white" onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <div class="particles"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        Hi, I'm <span class="gradient-text">Bibesh</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-400 mb-8 typing-effect" id="typewriter">Pursuing the Digital Space</p>
+                    <p class="text-gray-400 mb-8">A passionate student diving deep into the world of programming and web development. Currently mastering HTML, CSS, Java, C, and exploring endless possibilities in the digital realm.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300">
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="px-8 py-3 border border-purple-600 rounded-lg font-semibold hover:bg-purple-600/10 transition-all duration-300">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="floating">
+                    <div class="code-window">
+                        <div class="window-controls">
+                            <div class="window-dot bg-red-500"></div>
+                            <div class="window-dot bg-yellow-500"></div>
+                            <div class="window-dot bg-green-500"></div>
+                        </div>
+                        <pre class="p-6 text-sm text-gray-300">
+<span class="text-purple-400">class</span> <span class="text-yellow-300">Student</span> {
+    <span class="text-purple-400">String</span> name = <span class="text-green-400">"Bibesh"</span>;
+    <span class="text-purple-400">String[]</span> skills = {
+        <span class="text-green-400">"HTML"</span>, <span class="text-green-400">"CSS"</span>,
+        <span class="text-green-400">"Java"</span>, <span class="text-green-400">"C"</span>
+    };
     
-    <custom-navbar></custom-navbar>
-
-    <main class="flex-grow container mx-auto px-4 py-12">
-        
-        <section class="flex flex-col md:flex-row items-center justify-between gap-12 mb-24">
-            <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
-                    <span class="text-primary-500">Hello</span>, I'm <span class="text-secondary-500">Bibesh</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-lg">
-                    A passionate student exploring the world of code. Currently learning HTML, CSS, Java, and C while building practical projects along the way.
-                </p>
-                <div class="flex gap-4" role="group" aria-label="Quick Navigation Links">
-                    <a href="#projects" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition duration-200 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50">
-                        View Projects
-                    </a>
-                    <a href="#contact" class="border border-primary-500 text-primary-500 hover:bg-primary-500/10 px-6 py-3 rounded-lg font-medium transition duration-200">
-                        Contact Me
-                    </a>
+    <span class="text-purple-400">void</span> <span class="text-yellow-300">explore</span>() {
+        <span class="text-gray-500">// Always learning more!</span>
+        knowledge<span class="text-red-400">++</span>;
+    }
+}</pre>
+                    </div>
                 </div>
             </div>
-            <div class="md:w-1/2">
-                <div class="bg-gray-800 rounded-2xl p-2 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1623520527569-fee1da87f598?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                         alt="Male student working on a laptop, code snippets visible on the screen" 
-                         class="rounded-xl w-full h-auto object-cover">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="skill-card p-8 rounded-2xl">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        I'm a dedicated student with an insatiable curiosity for technology and programming. My journey in the digital space began with a simple "Hello World" and has evolved into a passionate pursuit of creating meaningful digital experiences.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        Currently, I'm expanding my skill set across multiple programming languages and frameworks. From low-level programming with C to object-oriented design with Java, and from crafting beautiful web interfaces with HTML/CSS to exploring modern web technologies - every day brings new learning opportunities.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">10+</div>
+                            <div class="text-gray-400">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">4+</div>
+                            <div class="text-gray-400">Languages</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">100%</div>
+                            <div class="text-gray-400">Dedication</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">∞</div>
+                            <div class="text-gray-400">Learning</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="border-gray-700 my-12" />
-
-        <section class="mb-24" id="skills">
-            <h2 class="text-3xl font-bold mb-12 text-center">
-                My <span class="text-primary-500">Skills</span>
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
-                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="code" class="text-primary-500 w-8 h-8"></i>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gradient-to-b from-transparent to-purple-900/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="skill-card p-6 rounded-xl text-center">
+                    <i class="fab fa-html5 text-5xl text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">HTML</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 85%"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">HTML/CSS</h3>
-                    <p class="text-gray-400">Building responsive and beautiful interfaces</p>
+                    <p class="text-gray-400 text-sm">Semantic markup & structure</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
-                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="cpu" class="text-primary-500 w-8 h-8"></i>
+                <div class="skill-card p-6 rounded-xl text-center">
+                    <i class="fab fa-css3-alt text-5xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">CSS</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 80%"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">C Programming</h3>
-                    <p class="text-gray-400">Understanding low-level programming concepts</p>
+                    <p class="text-gray-400 text-sm">Responsive design & animations</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
-                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="coffee" class="text-primary-500 w-8 h-8"></i>
-                    </div>
+                <div class="skill-card p-6 rounded-xl text-center">
+                    <i class="fab fa-java text-5xl text-red-600 mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">Java</h3>
-                    <p class="text-gray-400">Object-oriented programming fundamentals</p>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+                        <div class="bg-gradient-to-r from-red-600 to-orange-600 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Object-oriented programming</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
-                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="terminal" class="text-primary-500 w-8 h-8"></i>
+                <div class="skill-card p-6 rounded-xl text-center">
+                    <i class="fas fa-code text-5xl text-gray-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">C</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+                        <div class="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full" style="width: 70%"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Problem Solving</h3>
-                    <p class="text-gray-400">Logical thinking & algorithmic execution</p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-700 my-12" />
-
-        <section class="mb-24" id="projects">
-            <h2 class="text-3xl font-bold mb-12 text-center">
-                My <span class="text-primary-500">Projects</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
-                    <div class="h-48 bg-gray-700 flex items-center justify-center">
-                        <i data-feather="folder" class="w-16 h-16 text-primary-500"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Static Portfolio</h3>
-                        <p class="text-gray-400 mb-4">The very site you are viewing, built with Tailwind CSS.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
-                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">CSS (Tailwind)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
-                    <div class="h-48 bg-gray-700 flex items-center justify-center">
-                        <i data-feather="code" class="w-16 h-16 text-secondary-500"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Simple CLI Tool</h3>
-                        <p class="text-gray-400 mb-4">A command-line application to manage simple tasks.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gray-700 text-secondary-300 px-3 py-1 rounded-full text-sm font-medium">Java</span>
-                            <span class="bg-gray-700 text-secondary-300 px-3 py-1 rounded-full text-sm font-medium">OOP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
-                    <div class="h-48 bg-gray-700 flex items-center justify-center">
-                        <i data-feather="git-branch" class="w-16 h-16 text-primary-500"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Data Structure Demo</h3>
-                        <p class="text-gray-400 mb-4">Implementation of a Linked List for class.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">C</span>
-                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">Data Structures</span>
-                        </div>
-                    </div>
+                    <p class="text-gray-400 text-sm">System programming</p>
                 </div>
             </div>
-            
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 mb-6">And constantly learning...</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-full text-sm">JavaScript</span>
+                    <span class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-full text-sm">Python</span>
+                    <span class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-full text-sm">Git</span>
+                    <span class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-full text-sm">SQL</span>
+                    <span class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-full text-sm">React</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Recent Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <i class="fas fa-globe text-4xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Portfolio Website</h3>
+                    <p class="text-gray-400 mb-4">Personal portfolio showcasing my journey in programming and web development.</p>
+                    <div class="flex gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">HTML</span>
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">CSS</span>
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <i class="fas fa-calculator text-4xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Calculator App</h3>
+                    <p class="text-gray-400 mb-4">A functional calculator built with Java, featuring a clean GUI and mathematical operations.</p>
+                    <div class="flex gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">Java</span>
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">Swing</span>
+                    </div>
+                </div>
+                <div class="project-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <i class="fas fa-database text-4xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Data Structures</h3>
+                    <p class="text-gray-400 mb-4">Implementation of various data structures and algorithms in C for efficient problem-solving.</p>
+                    <div class="flex gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">C</span>
+                        <span class="text-xs px-2 py-1 bg-gray-800 rounded">Algorithms</span>
+                    </div>
+                </div>
+            </div>
             <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 font-medium transition duration-200">
-                    See more on GitHub 
-                    <i data-feather="arrow-right" class="w-5 h-5"></i>
-                </a>
+                <button class="px-8 py-3 border border-purple-600 rounded-lg font-semibold hover:bg-purple-600/10 transition-all duration-300">
+                    View More Projects <i class="fas fa-arrow-right ml-2"></i>
+                </button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="border-gray-700 my-12" />
-
-        <section class="mb-24" id="about">
-            <div class="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl">
-                <h2 class="text-3xl font-bold mb-8">
-                    About <span class="text-primary-500">Me</span>
-                </h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <p class="text-gray-300 mb-6">
-                            I'm a passionate student on a journey to master the art of coding. My current focus is on building a strong foundation in **web development** (HTML, CSS) while also exploring **system programming** with C and **object-oriented concepts** with Java.
-                        </p>
-                        <p class="text-gray-300 mb-6">
-                            What excites me most about programming is the endless learning possibilities and the ability to create solutions from scratch. I believe in **learning by doing**, which is why I'm constantly working on small projects to apply what I learn.
-                        </p>
-                        <p class="text-gray-300">
-                            This portfolio will evolve as my skills grow. Check back often to see my progress!
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        <div class="bg-gray-700/50 rounded-xl p-6 shadow-md">
-                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                                <i data-feather="target" class="text-secondary-500"></i>
-                                <span>Current Focus</span>
-                            </h3>
-                            <ul class="space-y-3 text-gray-300">
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Mastering responsive web design</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Data structures & algorithms in C</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Version control with Git/GitHub</span>
-                                </li>
-                            </ul>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-t from-purple-900/10 to-transparent">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Let's Connect</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="skill-card p-8 rounded-2xl">
+                    <p class="text-center text-gray-300 mb-8">
+                        I'm always excited to connect with fellow developers, mentors, and anyone passionate about technology. Feel free to reach out!
+                    </p>
+                    <form class="space-y-6" onsubmit="handleSubmit(event)">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
                         </div>
-                        <div class="bg-gray-700/50 rounded-xl p-6 shadow-md">
-                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                                <i data-feather="award" class="text-secondary-500"></i>
-                                <span>Learning Approach</span>
-                            </h3>
-                            <ul class="space-y-3 text-gray-300">
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Fundamentals first & Deep Dive</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Project-based learning & iterative development</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
-                                    <span>Consistent practice & Code Review</span>
-                                </li>
-                            </ul>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
                         </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                    <div class="flex justify-center gap-6 mt-8">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
                     </div>
                 </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="border-gray-700 my-12" />
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Bibesh. Crafted with passion and code.</p>
+        </div>
+    </footer>
 
-        <section class="mb-12" id="contact">
-            <h2 class="text-3xl font-bold mb-12 text-center">
-                Get In <span class="text-primary-500">Touch</span>
-            </h2>
-            <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto shadow-xl">
-                <form class="space-y-6" action="submit-form-endpoint" method="POST">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 mb-2 font-medium">Name</label>
-                            <input type="text" id="name" name="name" required
-                                   class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
-                                   placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
-                            <input type="email" id="email" name="email" required
-                                   class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
-                                   placeholder="you@example.com">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-gray-300 mb-2 font-medium">Subject</label>
-                        <input type="text" id="subject" name="subject"
-                               class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
-                               placeholder="I'd like to talk about...">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-300 mb-2 font-medium">Message</label>
-                        <textarea id="message" name="message" rows="5" required
-                                  class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
-                                  placeholder="Your message..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition duration-200 shadow-lg shadow-primary-500/30">
-                        Send Message
-                    </button>
-                </form>
-                
-                <p class="text-center text-gray-400 text-sm mt-4">
-                    Note: This form requires a backend service (e.g., Formspree, Netlify Forms) to send an email.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <custom-footer></custom-footer>
-
-    <script src="script.js"></script>
     <script>
-        // Initialize feather icons after components are loaded
-        document.addEventListener('DOMContentLoaded', () => {
-             // The icons in the main body should be replaced once the DOM is ready
-             feather.replace();
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // Typing effect
+        const phrases = ['Pursuing the Digital Space', 'Learning Every Day', 'Building the Future', 'Coding with Passion'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const element = document.getElementById('typewriter');
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                element.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                element.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+            
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeWriter, typingSpeed);
+        }
+        
+        typeWriter();
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        }
+
+        // Generate particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
