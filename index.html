@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Odyssey | Bibesh's  Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#3B82F6', // Blue
+                            600: '#2563EB', // Darker Blue
+                        },
+                        secondary: {
+                            500: '#10B981', // Green
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <script src="components/navbar.js" defer></script>
+    <script src="components/footer.js" defer></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col transition-colors duration-500">
+    
+    <custom-navbar></custom-navbar>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        
+        <section class="flex flex-col md:flex-row items-center justify-between gap-12 mb-24">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+                    <span class="text-primary-500">Hello</span>, I'm <span class="text-secondary-500">Bibesh</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-lg">
+                    A passionate student exploring the world of code. Currently learning HTML, CSS, Java, and C while building practical projects along the way.
+                </p>
+                <div class="flex gap-4" role="group" aria-label="Quick Navigation Links">
+                    <a href="#projects" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition duration-200 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="border border-primary-500 text-primary-500 hover:bg-primary-500/10 px-6 py-3 rounded-lg font-medium transition duration-200">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="bg-gray-800 rounded-2xl p-2 shadow-2xl">
+                    <img src="http://static.photos/technology/640x360/42" 
+                         alt="Student Alex working on a laptop, code snippets visible on the screen" 
+                         class="rounded-xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-700 my-12" />
+
+        <section class="mb-24" id="skills">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                My <span class="text-primary-500">Skills</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
+                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="code" class="text-primary-500 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">HTML/CSS</h3>
+                    <p class="text-gray-400">Building responsive and beautiful interfaces</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
+                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="cpu" class="text-primary-500 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">C Programming</h3>
+                    <p class="text-gray-400">Understanding low-level programming concepts</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
+                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="coffee" class="text-primary-500 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Java</h3>
+                    <p class="text-gray-400">Object-oriented programming fundamentals</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition duration-200 shadow-lg">
+                    <div class="w-16 h-16 bg-primary-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="terminal" class="text-primary-500 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Problem Solving</h3>
+                    <p class="text-gray-400">Logical thinking & algorithmic execution</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-700 my-12" />
+
+        <section class="mb-24" id="projects">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                My <span class="text-primary-500">Projects</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
+                    <div class="h-48 bg-gray-700 flex items-center justify-center">
+                        <i data-feather="folder" class="w-16 h-16 text-primary-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Static Portfolio</h3>
+                        <p class="text-gray-400 mb-4">The very site you are viewing, built with Tailwind CSS.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
+                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">CSS (Tailwind)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
+                    <div class="h-48 bg-gray-700 flex items-center justify-center">
+                        <i data-feather="code" class="w-16 h-16 text-secondary-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Simple CLI Tool</h3>
+                        <p class="text-gray-400 mb-4">A command-line application to manage simple tasks.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-secondary-300 px-3 py-1 rounded-full text-sm font-medium">Java</span>
+                            <span class="bg-gray-700 text-secondary-300 px-3 py-1 rounded-full text-sm font-medium">OOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/20 transition duration-300">
+                    <div class="h-48 bg-gray-700 flex items-center justify-center">
+                        <i data-feather="git-branch" class="w-16 h-16 text-primary-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Data Structure Demo</h3>
+                        <p class="text-gray-400 mb-4">Implementation of a Linked List for class.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">C</span>
+                            <span class="bg-gray-700 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">Data Structures</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 font-medium transition duration-200">
+                    See more on GitHub 
+                    <i data-feather="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <hr class="border-gray-700 my-12" />
+
+        <section class="mb-24" id="about">
+            <div class="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl">
+                <h2 class="text-3xl font-bold mb-8">
+                    About <span class="text-primary-500">Me</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <p class="text-gray-300 mb-6">
+                            I'm a passionate student on a journey to master the art of coding. My current focus is on building a strong foundation in **web development** (HTML, CSS) while also exploring **system programming** with C and **object-oriented concepts** with Java.
+                        </p>
+                        <p class="text-gray-300 mb-6">
+                            What excites me most about programming is the endless learning possibilities and the ability to create solutions from scratch. I believe in **learning by doing**, which is why I'm constantly working on small projects to apply what I learn.
+                        </p>
+                        <p class="text-gray-300">
+                            This portfolio will evolve as my skills grow. Check back often to see my progress!
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-gray-700/50 rounded-xl p-6 shadow-md">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-feather="target" class="text-secondary-500"></i>
+                                <span>Current Focus</span>
+                            </h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Mastering responsive web design</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Data structures & algorithms in C</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Version control with Git/GitHub</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-700/50 rounded-xl p-6 shadow-md">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <i data-feather="award" class="text-secondary-500"></i>
+                                <span>Learning Approach</span>
+                            </h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Fundamentals first & Deep Dive</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Project-based learning & iterative development</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-feather="check" class="text-secondary-500 mt-1 flex-shrink-0"></i>
+                                    <span>Consistent practice & Code Review</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-700 my-12" />
+
+        <section class="mb-12" id="contact">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                Get In <span class="text-primary-500">Touch</span>
+            </h2>
+            <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto shadow-xl">
+                <form class="space-y-6" action="submit-form-endpoint" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2 font-medium">Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
+                                   placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
+                                   placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-300 mb-2 font-medium">Subject</label>
+                        <input type="text" id="subject" name="subject"
+                               class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
+                               placeholder="I'd like to talk about...">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-300 mb-2 font-medium">Message</label>
+                        <textarea id="message" name="message" rows="5" required
+                                  class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500"
+                                  placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition duration-200 shadow-lg shadow-primary-500/30">
+                        Send Message
+                    </button>
+                </form>
+                
+                <p class="text-center text-gray-400 text-sm mt-4">
+                    Note: This form requires a backend service (e.g., Formspree, Netlify Forms) to send an email.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize feather icons after components are loaded
+        document.addEventListener('DOMContentLoaded', () => {
+             // The icons in the main body should be replaced once the DOM is ready
+             feather.replace();
+        });
+    </script>
+</body>
+</html>

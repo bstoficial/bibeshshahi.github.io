@@ -1,0 +1,11 @@
+/* style.css */
+
+/* Global styles or specific overrides not easily done with Tailwind utility classes */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure Feather Icons are rendered correctly */
+[data-feather] {
+    stroke-width: 2.5; /* Makes icons slightly bolder */
+}
